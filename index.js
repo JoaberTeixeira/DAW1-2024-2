@@ -19,4 +19,9 @@ app.get('/:nome/:sobrenome', function(req,res){
   res.send(mensagem)
 })
 
+app.get('/soma/:x/:y', function(req,res){
+  const soma = parseInt(req.params. x) + parseInt(req.params. y)
+  res.send('A soma é '+soma)
+})
+
 app.listen(3000)
