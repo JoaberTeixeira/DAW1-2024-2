@@ -1,8 +1,12 @@
 import express from 'express'
 const app = express()
 
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended:true }))
+
 app.get('/', function(req,res){
-  res.send('Oi mundo!')
+  //res.send('Oi mundo!')
+  res.render('tela1')
 })
 
 app.get('/Joaber', function(req,res){
@@ -19,9 +23,24 @@ app.get('/:nome/:sobrenome', function(req,res){
   res.send(mensagem)
 })
 
-app.get('/soma/:x/:y', function(req,res){
-  const soma = parseInt(req.params. x) + parseInt(req.params. y)
-  res.send('A soma é '+soma)
+app.get('/:calc/:x/:y', function(req,res){
+  let calc
+  if(req.params.calc=="soma"){
+    calc = parseFloat(req.params.x) + parseFloat(req.params.y)
+  }
+  if(req.params.calc=="subt"){
+    calc = parseFloat(req.params.x) - parseFloat(req.params.y)
+  }
+  if(req.params.calc=="mult"){
+    calc = parseFloat(req.params.x) * parseFloat(req.params.y)
+  }
+  if(req.params.calc=="divi"){
+    calc = parseFloat(req.params.x) / parseFloat(req.params.y)
+  }
+  const mensagem = parseFloat(req.params.calc)
+  res.send(mensagem);
+  
 })
+
 
 app.listen(3000)
