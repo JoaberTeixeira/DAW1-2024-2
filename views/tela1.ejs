@@ -4,22 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>minha primeira tela</title>
+    <title>Minha primeira página</title>
     <style>
         h1 {
-            color: blue;
+            color: red;
+        }
+
+        button {
+            background-color: blueviolet;
         }
     </style>
 </head>
 
 <body>
-    <h1>OI MUNDO</h1>
-    <form method="get">
+    <form method="post">
         <div>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" required>
+            <label for="val1">Valor 1:</label>
+            <input type="number" name="val1" id="val1">
         </div>
-        <div></div>
+        <div>
+            <label for="val2">Valor 2:</label>
+            <input type="number" name="val2" id="val2">
+        </div>
+        <div>
+            <label for="operacao">Operação:</label>
+            <select id="operacao" name="operacao">
+                <option value="soma">Soma</option>
+                <option value="subt">Subtração</option>
+                <option value="mult">Multiplicação</option>
+                <option value="divi">Divisão</option>
+            </select>
+        </div>
         <div>
             <button type="submit">Enviar</button>
         </div>
